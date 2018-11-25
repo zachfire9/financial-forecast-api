@@ -11,11 +11,11 @@ import (
 
 type Investment struct {
     ID                          bson.ObjectId `json:"id" bson:"_id,omitempty"`
-    UserId                      bson.ObjectId `json:"userId" bson:"userId,omitempty"`
+    UserId                      bson.ObjectId `json:"userId" bson:"userId"`
     Name                        string `json:"name"`
-    CurrentAmount               string `json:"currentAmount"`
-    InterestAnnualExpected      string `json:"interestAnnualExpected"`
-    PaymentMonthly              string `json:"paymentMonthly"`
+    CurrentAmount               float64 `json:"currentAmount,string"`
+    InterestAnnualExpected      float64 `json:"interestAnnualExpected,string"`
+    PaymentMonthly              float64 `json:"paymentMonthly,string"`
     CreatedAt                   time.Time `json:"createdAt"`
     UpdatedAt                   time.Time `json:"updatedAt"`
 }

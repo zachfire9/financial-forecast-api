@@ -13,10 +13,10 @@ type User struct {
     ID                          bson.ObjectId `json:"id" bson:"_id,omitempty"`
     Name                        string `json:"name"`
     Email                       string `json:"email"`
-    RetirementGoal              string `json:"retirementGoal"`
+    RetirementGoal              float64 `json:"retirementGoal,string"`
     RetirementDate              time.Time `json:"retirementDate"`
-    RetirementLivingAmount      string `json:"retirementLivingAmount"`
-    InflationAnnualExpected     string `json:"inflationAnnualExpected"`
+    RetirementLivingAmount      float64 `json:"retirementLivingAmount,string"`
+    InflationAnnualExpected     float64 `json:"inflationAnnualExpected,string"`
     CreatedAt                   time.Time `json:"createdAt"`
     UpdatedAt                   time.Time `json:"updatedAt"`
 }
