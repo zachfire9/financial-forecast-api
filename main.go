@@ -4,6 +4,7 @@ import (
     "fmt"
     "log"
     "net/http"
+    "os"
 
     "github.com/gorilla/mux"
     "gopkg.in/mgo.v2"
@@ -12,11 +13,24 @@ import (
 var db *mgo.Database
 
 func init() {
-    session, err := mgo.Dial("localhost")
+    databaseConnection := os.Getenv("DATABASE_CONNECTION")
+
+    if len(databaseConnection) == 0 {
+        databaseConnection = "localhost"
+    }
+
+    databaseName := os.Getenv("DATABASE_NAME")
+
+    if len(databaseName) == 0 {
+        databaseName = "go"
+    }
+
+
+    session, err := mgo.Dial(databaseConnection)
     if err != nil {
         panic(err)
     }
-    db = session.DB("go")
+    db = session.DB(databaseName)
 }
 
 func main() {
