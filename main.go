@@ -50,13 +50,13 @@ func main() {
     router.HandleFunc("/investments/{investmentId}", InvestmentsPut).Methods("PUT")
     router.HandleFunc("/investments/{investmentId}", InvestmentsDelete).Methods("DELETE")
 
-    appPort := os.Getenv("APP_PORT")
+    appPort := os.Getenv("PORT")
 
     if len(appPort) == 0 {
-        appPort = ":8080"
+        appPort = "8080"
     }
 
-    log.Fatal(http.ListenAndServe(appPort, router))
+    log.Fatal(http.ListenAndServe(":" + appPort, router))
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
