@@ -112,7 +112,7 @@ func UsersPut(w http.ResponseWriter, r *http.Request) {
         panic(err)
     }
 
-    w.WriteHeader(http.StatusNoContent)
+    w.WriteHeader(http.StatusOK)
 }
 
 func UsersDelete(w http.ResponseWriter, r *http.Request) {
@@ -126,5 +126,5 @@ func UsersDelete(w http.ResponseWriter, r *http.Request) {
         panic(err)
     }
 
-    w.WriteHeader(http.StatusNoContent)
+    w.WriteHeader(http.StatusOK)
 }

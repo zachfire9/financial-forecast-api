@@ -111,7 +111,7 @@ func InvestmentsPut(w http.ResponseWriter, r *http.Request) {
         panic(err)
     }
 
-    w.WriteHeader(http.StatusNoContent)
+    w.WriteHeader(http.StatusOK)
 }
 
 func InvestmentsDelete(w http.ResponseWriter, r *http.Request) {
@@ -125,5 +125,5 @@ func InvestmentsDelete(w http.ResponseWriter, r *http.Request) {
         panic(err)
     }
 
-    w.WriteHeader(http.StatusNoContent)
+    w.WriteHeader(http.StatusOK)
 }
